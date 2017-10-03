@@ -8,9 +8,9 @@ using System.Text;
 
 namespace ApartmentRestKanne
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IApartmentService" in both code and config file together.
     [ServiceContract]
-    public interface IService1
+    public interface IApartmentService
     {
 
         [OperationContract]
