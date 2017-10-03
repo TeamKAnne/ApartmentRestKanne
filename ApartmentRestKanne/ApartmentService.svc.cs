@@ -42,7 +42,25 @@ namespace ApartmentRestKanne
 
         public IList<Apartment> GetAllApartmentByLocation(string location)
         {
-            throw new NotImplementedException();
+            IList<Apartment> apartments = new List<Apartment>();
+
+            using (SqlConnection conn = new SqlConnection(connstr))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM APARTMENT ORDER BY LOCATION ASC";
+                SqlCommand getCommand = new SqlCommand(sql,conn);
+
+                SqlDataReader reader = getCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Apartment apartmentElement = ReadApartment(reader);
+                    apartments.Add(apartmentElement);
+                }
+
+                return apartments;
+            }
+           
         }
 
         public Apartment ReadApartment(SqlDataReader reader)
@@ -73,7 +91,24 @@ namespace ApartmentRestKanne
 
         public IList<Apartment> GetAllApartmentByPostalCode(string code)
         {
-            throw new NotImplementedException();
+            IList<Apartment> apartments = new List<Apartment>();
+
+            using (SqlConnection conn = new SqlConnection(connstr))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM APARTMENT ORDER BY POSTALCODE";
+
+                SqlCommand getCommand = new SqlCommand(sql,conn);
+
+                SqlDataReader reader = getCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Apartment apartmentElement = ReadApartment(reader);
+                    apartments.Add(apartmentElement);
+                }
+            }
+            return apartments;
         }
 
         public string GetData(int value)
