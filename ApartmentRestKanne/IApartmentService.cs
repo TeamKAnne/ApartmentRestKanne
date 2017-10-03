@@ -29,7 +29,7 @@ namespace ApartmentRestKanne
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "apartment/location/{loacation}")]
+            UriTemplate = "apartment/location/{location}")]
         IList<Apartment> GetAllApartmentByLocation(String location);
 
         [OperationContract]

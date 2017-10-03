@@ -19,7 +19,7 @@ namespace ApartmentRestKanne
 
         public IList<Apartment> GetAllApartment()
         {
-            IList<Apartment> apartment = new List<Apartment>();
+            IList<Apartment> apartments = new List<Apartment>();
 
             using (SqlConnection conn = new SqlConnection(connstr))
             {
@@ -30,6 +30,13 @@ namespace ApartmentRestKanne
 
                 SqlDataReader reader = getCommand.ExecuteReader();
 
+                while (reader.Read())
+                {
+                    Apartment apartmentElement = ReadApartment(reader);
+                    apartments.Add(apartmentElement);
+                }
+
+                return apartments;
             }
         }
 
