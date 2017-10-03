@@ -12,6 +12,26 @@ namespace ApartmentRestKanne
     [ServiceContract]
     public interface IApartmentService
     {
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "apartment/")]
+        IList<Apartment> GetAllApartment();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "apartment/postalcode/{code}")]
+        IList<Apartment> GetAllApartmentByPostalCode(String code);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "apartment/location/{loacation}")]
+        IList<Apartment> GetAllApartmentByLocation(String location);
+
+
 
         [OperationContract]
         string GetData(int value);
@@ -21,6 +41,7 @@ namespace ApartmentRestKanne
 
         // TODO: Add your service operations here
     }
+
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

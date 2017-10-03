@@ -65,6 +65,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apartment.cs" />
     <Compile Include="ApartmentService.svc.cs">
       <DependentUpon>ApartmentService.svc</DependentUpon>
     </Compile>
