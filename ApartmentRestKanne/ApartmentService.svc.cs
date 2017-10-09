@@ -111,6 +111,53 @@ namespace ApartmentRestKanne
             return apartments;
         }
 
+        /// <summary>
+        /// Yderligere CRUD metoder:
+        /// </summary>
+        /// <param name="apartment"></param>
+        public void CreateAppartment(Apartment apartment)
+        {
+           // IList<Apartment> alist = new List<Apartment>();
+
+            using (SqlConnection conn = new SqlConnection(connstr))
+            {
+                conn.Open();
+                string sql =
+                    "INSERT INTO APARTMENT (Price, Location, PostalCode, Size, NoRoom, WashingMachine, Dishwasher)values(@Price, @Location, @Postalcode, @Size, @NoRoom, @WashingMachine, @Dishwasher)";
+                SqlCommand postCommand = new SqlCommand(sql,conn);
+
+                postCommand.Parameters.AddWithValue("@Price", apartment.Price);
+                postCommand.Parameters.AddWithValue("@Location", apartment.Location);
+                postCommand.Parameters.AddWithValue("@PostalCode", apartment.PostalCode);
+                postCommand.Parameters.AddWithValue("@Size", apartment.Size);
+                postCommand.Parameters.AddWithValue("@NoRoom", apartment.NoRoom);
+                postCommand.Parameters.AddWithValue("@WashingMachine", apartment.WashingMachine);
+                postCommand.Parameters.AddWithValue("@Dishwasher", apartment.Dishwasher);
+
+                postCommand.ExecuteNonQuery();
+                
+            }
+        }
+
+        public void DeleteAparment(string id)
+        {
+            using (SqlConnection conn = new SqlConnection(connstr))
+            {
+                conn.Open();
+                string sql = "DELETE FROM APARTMENT WHERE Id = @Id";
+
+                SqlCommand deleteCommand = new SqlCommand(sql,conn);
+
+                deleteCommand.Parameters.AddWithValue("@Id", id);
+                deleteCommand.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateApartment(string id, Apartment apartment)
+        {
+            throw new NotImplementedException();
+        }
+
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -128,5 +175,7 @@ namespace ApartmentRestKanne
             }
             return composite;
         }
+
+       
     }
 }

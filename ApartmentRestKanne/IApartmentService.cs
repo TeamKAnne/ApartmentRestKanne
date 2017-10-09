@@ -33,8 +33,35 @@ namespace ApartmentRestKanne
         IList<Apartment> GetAllApartmentByLocation(String location);
 
         [OperationContract]
-        Apartment ReadApartment(SqlDataReader reader); 
+        Apartment ReadApartment(SqlDataReader reader);
 
+
+        /// <summary>
+        /// Yderligere CRUD metoder:
+        /// </summary>
+        /// <param name="apartment"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "apartments/")]
+        void CreateAppartment(Apartment apartment);
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "apartments/{id}")]
+        void DeleteAparment(string id);
+
+        [OperationContract]
+        [WebInvoke(Method = "UPDATE",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "apartments/{id}")]
+        void UpdateApartment(string id, Apartment apartment);
 
 
         [OperationContract]
