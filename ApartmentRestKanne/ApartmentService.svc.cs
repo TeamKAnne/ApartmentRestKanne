@@ -153,9 +153,29 @@ namespace ApartmentRestKanne
             }
         }
 
-        public void UpdateApartment(string id, Apartment apartment)
+        public void UpdateApartment(string id, Apartment newApartment)
         {
-            throw new NotImplementedException();
+
+            using (SqlConnection conn = new SqlConnection(connstr))
+            {
+                conn.Open();
+                string sql = "UPDATE APARTMENT SET Price = @Price, Location = @Location, PostalCode = @PostalCode, Size = @Size, NoRoom = @NoRoom, WashingMachine = @WashingMachine, Dishwasher = @Dishwasher WHERE Id = @Id";
+                
+                SqlCommand updateCommand = new SqlCommand(sql,conn);
+
+                updateCommand.Parameters.AddWithValue("@Id", Int32.Parse(id));
+                
+                updateCommand.Parameters.AddWithValue("@Price", newApartment.Price);
+                updateCommand.Parameters.AddWithValue("@Location", newApartment.Location);
+                updateCommand.Parameters.AddWithValue("@PostalCode", newApartment.PostalCode);
+                updateCommand.Parameters.AddWithValue("@Size", newApartment.Size);
+                updateCommand.Parameters.AddWithValue("@NoRoom", newApartment.NoRoom);
+                updateCommand.Parameters.AddWithValue("@WashingMachine", newApartment.WashingMachine);
+                updateCommand.Parameters.AddWithValue("@Dishwasher", newApartment.Dishwasher);
+
+                updateCommand.ExecuteNonQuery();
+
+            }
         }
 
         public string GetData(int value)

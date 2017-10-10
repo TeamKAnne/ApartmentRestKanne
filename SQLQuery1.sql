@@ -1,0 +1,1 @@
+﻿UPDATE APARTMENT SET Price = 5, Location = 'kbhbh', PostalCode = 21, Size = 70, NoRoom = 4, WashingMachine = 0, Dishwasher = 1 WHERE Id = 13

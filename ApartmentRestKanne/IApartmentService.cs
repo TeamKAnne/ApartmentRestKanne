@@ -57,11 +57,11 @@ namespace ApartmentRestKanne
         void DeleteAparment(string id);
 
         [OperationContract]
-        [WebInvoke(Method = "UPDATE",
+        [WebInvoke(Method = "PUT",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
             UriTemplate = "apartments/{id}")]
-        void UpdateApartment(string id, Apartment apartment);
+        void UpdateApartment(string id, Apartment newApartment);
 
 
         [OperationContract]
