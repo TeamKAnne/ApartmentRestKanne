@@ -11,6 +11,8 @@
         private bool washingMachine;
         private bool dishwasher;
 
+        
+
         public int Id { get => id; set => id = value; }
         public int Price { get => price; set => price = value; }
         public string Location { get => location; set => location = value; }
