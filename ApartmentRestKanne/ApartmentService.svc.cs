@@ -111,6 +111,28 @@ namespace ApartmentRestKanne
             return apartments;
         }
 
+        //public IList<Apartment> GetPriceRangeApartment(int minprice, int maxprice)
+        //{
+        //    IList<Apartment> apartments = new List<Apartment>();
+
+        //    using (SqlConnection conn = new SqlConnection(connstr))
+        //    {
+        //        conn.Open();
+        //        string sql = $"SELECT * FROM APARTMENT WHERE PRICE BETWEEN {minprice} AND {maxprice}";
+
+        //        SqlCommand getCommand = new SqlCommand(sql, conn);
+
+        //        SqlDataReader reader = getCommand.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            Apartment apartmentElement = ReadApartment(reader);
+        //            apartments.Add(apartmentElement);
+        //        }
+        //    }
+        //    return apartments; ;
+        //}
+
         /// <summary>
         /// Yderligere CRUD metoder:
         /// </summary>
@@ -138,6 +160,28 @@ namespace ApartmentRestKanne
                 
             }
         }
+
+        //public IList<Apartment> GetWash(bool washingMachine)
+        //{
+        //    IList<Apartment> apartments = new List<Apartment>();
+
+        //    using (SqlConnection conn = new SqlConnection(connstr))
+        //    {
+        //        conn.Open();
+        //        string sql = "SELECT * FROM APARTMENT WHERE WASHINGMACHINE LIKE TRUE";
+
+        //        SqlCommand getCommand = new SqlCommand(sql, conn);
+
+        //        SqlDataReader reader = getCommand.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            Apartment apartmentElement = ReadApartment(reader);
+        //            apartments.Add(apartmentElement);
+        //        }
+        //    }
+        //    return apartments;
+        //}
 
         public void DeleteAparment(string id)
         {
@@ -196,6 +240,6 @@ namespace ApartmentRestKanne
             return composite;
         }
 
-       
+      
     }
 }

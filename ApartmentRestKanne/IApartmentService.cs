@@ -32,6 +32,20 @@ namespace ApartmentRestKanne
             UriTemplate = "apartment/location/{location}")]
         IList<Apartment> GetAllApartmentByLocation(String location);
 
+        //[OperationContract]
+        //[WebInvoke(Method = "GET",
+        //    RequestFormat = WebMessageFormat.Json,
+        //    ResponseFormat = WebMessageFormat.Json,
+        //    UriTemplate = "apartment/price/{minprice}/{maxprice}")]
+        //IList<Apartment> GetPriceRangeApartment(int minprice, int maxprice);
+
+        //[OperationContract]
+        //[WebInvoke(Method = "GET",
+        //    ResponseFormat = WebMessageFormat.Json,
+        //    RequestFormat = WebMessageFormat.Json,
+        //    UriTemplate = "apartment/washingmachine/{true}")]
+        //IList<Apartment> GetWash(bool washingMachine);
+
         [OperationContract]
         Apartment ReadApartment(SqlDataReader reader);
 
